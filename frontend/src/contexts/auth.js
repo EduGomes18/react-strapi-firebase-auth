@@ -3,10 +3,16 @@ import { signIn } from "../services/auth";
 import useLocalStorage from "../hooks/useLocalStorage";
 const AuthContext = createContext({ signed: false, user: null });
 
-export const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ oAuth, children }) => {
+  const { user, signInWithGoogle, signOut } = oAuth;
+
   const [userData, setUserData] = useLocalStorage(null);
 
-  const authSignIn = async (data) => {
+  console.log("log no context", user);
+
+  //Implementar a funcao signInWithGoogle passando o token pro strapi decodificar
+
+  const strapiSignIn = async (data) => {
     try {
       const response = await signIn(data);
       setUserData(response);
@@ -15,13 +21,21 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const signOut = async () => {
+  const strapiSignOut = async () => {
     setUserData(null);
   };
 
   return (
     <AuthContext.Provider
-      value={{ signed: !!userData, userData, authSignIn, signOut }}
+      value={{
+        signed: !!userData || !!user,
+        userData,
+        strapiSignIn,
+        signInWithGoogle,
+        strapiSignOut,
+        user,
+        signOut,
+      }}
     >
       {children}
     </AuthContext.Provider>

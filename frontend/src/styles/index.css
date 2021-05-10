@@ -38,6 +38,27 @@ body {
   flex-direction: column;
 }
 
+.box h2 {
+  margin-bottom: 20px;
+  color: #707070;
+}
+
+.box ul {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.box ul li {
+  width: 100%;
+  list-style: none;
+  padding: 6px 12px 8px 12px;
+}
+
+.box ul li:nth-of-type(odd) {
+  background: #e2e2e2;
+}
+
 .blue {
   background: #09f;
 }
@@ -57,6 +78,7 @@ body {
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
   position: relative;
+  margin-bottom: 15px;
   box-shadow: 0;
 }
 .button span {
