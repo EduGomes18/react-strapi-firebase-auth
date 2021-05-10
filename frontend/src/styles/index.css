@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 250ms ease-in;
+}
+
+.container-center {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  padding: 35px;
+  width: 100%;
+  max-width: 1080px;
+  background: #ebebeb;
+  display: flex;
+  height: 80vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+.blue {
+  background: #09f;
+}
+.pink {
+  background: rgb(255, 155, 255);
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 35px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: 0;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  box-shadow: 0;
+}
+.button span {
+  z-index: 1;
+}
+.button div {
+  width: 0;
+  transition: all 0.4s ease-in-out;
+  height: 0;
+  z-index: 1;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.button:hover div {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 10px 10px 61px -8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
