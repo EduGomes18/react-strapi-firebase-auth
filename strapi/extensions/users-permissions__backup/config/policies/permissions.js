@@ -26,6 +26,7 @@ module.exports = async (ctx, next) => {
       // decode firebase tokens
       try {
         const idToken = ctx.request.header.authorization.split(" ")[1];
+
         const decodedToken = await strapi.firebase
           .auth()
           .verifyIdToken(idToken);

@@ -62,6 +62,9 @@ body {
 .blue {
   background: #09f;
 }
+.gray {
+  background: #666;
+}
 .pink {
   background: rgb(255, 155, 255);
 }
@@ -72,13 +75,14 @@ body {
   align-items: center;
   padding: 12px 35px;
   color: #ffffff;
+  margin: 50px 12px 15px 12px;
   font-size: 16px;
   font-weight: 600;
   border: 0;
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
   position: relative;
-  margin-bottom: 15px;
+
   box-shadow: 0;
 }
 .button span {
@@ -108,4 +112,9 @@ body {
   transform: translateY(-2px);
   box-shadow: 10px 10px 61px -8px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+}
+
+.row {
+  display: flex;
+  margin-right: auto;
 }

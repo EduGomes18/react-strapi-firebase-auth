@@ -1,16 +1,26 @@
 import React, { useContext } from "react";
 import Container from "../../components/Container";
+import api from "../../services/api";
 
 import AuthContext from "../../contexts/auth";
 
 function Signout() {
-  const { signOut, user } = useContext(AuthContext);
-
-  console.log(user);
+  const { SignOut, userData, user } = useContext(AuthContext);
 
   const handleSignOut = () => {
-    signOut();
+    SignOut();
   };
+
+  const handleFetch = async () => {
+    const res = await api.get("articles", {
+      headers: {
+        Authorization: `Bearer ${userData.jwt}`,
+      },
+    });
+
+    console.log(res.data);
+  };
+
   return (
     <Container bg="pink">
       <div className="box">
@@ -24,10 +34,17 @@ function Signout() {
           </li>
         </ul>
 
-        <button onClick={handleSignOut} className="button blue">
-          <div />
-          <span>Sign out</span>
-        </button>
+        <div className="row">
+          <button onClick={handleSignOut} className="button pink">
+            <div />
+            <span>Sign out</span>
+          </button>
+
+          <button onClick={handleFetch} className="button blue">
+            <div />
+            <span>Fetch content</span>
+          </button>
+        </div>
       </div>
     </Container>
   );
